@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <title>Portfoli Web</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: 'Ubuntu Condensed', sans-serif;
+        }
+        
+        html{
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-image: url('header5.jpeg');
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        .navigation {
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 7vh;
+            
+            text-shadow: 0px 0px 2px 2px lightgray;
+            position: fixed;
+            top: "";
+            content: "";
+            width: 100%;
+            transition: all;
+            transition-duration: 0.2s;
+            transition-delay: 0.2s;
+            z-index: 1;
+
+        }
+
+        .navigation h1 {
+            font-family: 'Righteous', cursive;
+        }
+
+        .navigationLeft {
+            width: 20%;
+            text-transform: uppercase;
+        }
+
+        .navigationRight {
+            width: 70%;
+
+        }
+
+        .navigationRight ul {
+            letter-spacing: 1px;
+
+            display: inline-flex;
+            float: right;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navigationRight ul li {
+            cursor: pointer;
+            list-style: none;
+            text-align: center;
+            padding: 5px 10px;
+            margin: 0px 20px;
+            border: 2px solid transparent;
+        }
+
+        .navigation ul li a {
+            color: white;
+            font-weight: bold;
+
+        }
+
+        .navigation ul li:hover {
+            transform: scale(0.9, 0.9);
+            border-bottom: 4px solid teal;
+        }
+
+        .scrollImage {
+            background-size: 100% 100%;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            width: 100%;
+            text-shadow: 0px 0px 2px -2px lightgray;
+        }
+
+        .scrollImage a {
+            color: white;
+            width: 150px;
+            text-align: center;
+            padding: 5px;
+            border: 2px solid black;
+            border-radius: 20px;
+            background-color: black;
+            box-shadow: 0px 0px 2px 2px teal;
+            margin: 5px 0px;
+        }
+
+        .scrollImage a:hover {
+            transform: scale(0.9, 0.9);
+            color: teal;
+        }
+
+        .scrollImage h1 {
+            margin: 5px 0px;
+            font-size: 70px;
+            font-family: 'Lobster', cursive;
+        }
+
+        .scrollImage div {
+            width: 50%;
+            height: 100%;
+            border-color:2px solid transparent;
+        }
+
+        #scrollDiv1 {
+
+            background: linear-gradient(190deg, rgba(0, 0, 0, 0.6) 70%, white 30%);
+
+        }
+
+        #scrollDiv2 {
+
+            background: linear-gradient(-190deg, rgba(0, 0, 0, 0.6) 70%, white 30%);
+
+        }
+
+        #greet {
+            font-size: 50px;
+            top: 120px;
+            color: teal;
+        }
+
+        #bottomGreet {
+            top: 170px;
+        }
+
+        .scrollAbsolute {
+            position: absolute;
+
+        }
+        .about{
+            text-transform: capitalize;
+            display: flex;
+            align-items: center;
+            background-color: white;
+        }
+        #aboutH{
+            text-align: center;
+            text-transform: capitalize;
+            background-color: white;
+        }
+        .about div{
+            display:flex;
+            padding: 10px 20px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 50%;
+            height: 50vh;
+            font-size: 20px;
+            font-family: 'Oswald', sans-serif;
+        }
+        .about div img{
+            border-radius: 40%;
+            box-shadow:0px 0px 10px 6px #00808024;
+        }
+        .serv{
+            box-shadow: inset 0px 0px 2px 2px lightgray;
+            background: rgba(0, 0, 0, 0.8);
+        }
+        .services{
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
+           /* box-shadow: inset 0px 0px 2px 2px gray; */
+        }
+        .services div{
+            margin: 50px 0px;
+            display: inline-flex;
+            flex-direction: column;
+            width: 20%;
+            height: 50vh;
+            background-color: black;
+            box-shadow: 0px 0px 2px 2px #eeeeee;
+            
+        }
+        .services div:hover{
+            transform:scale(0.9,0.9);
+            box-shadow: 0px 4px 20px -2px rgba(255, 255, 255, 0.4);
+            border-radius: 20px;
+        }
+        .services div:hover h2{
+            transform: scale(0.9,0.9);
+        }
+        .services div img{
+            width: 100%;
+            padding: 10px;
+            filter: drop-shadow(0px 2px 2px white);
+            height: 85%;
+        }
+        #headServices{
+            background-color: white;
+            
+            text-align: center;
+            padding: 10px 0px;
+        }
+        .services div h2{
+            padding: 10px;
+            margin: 5px;
+            text-align: center;
+            color: white;
+            box-shadow: 0px 0px 2px 2px teal;
+
+        }
+        #headCont{
+            padding: 10px;
+            text-align: center;
+            background-color:white;
+        }
+        #contact{
+            background-color:white;
+        }
+        #contact input,#contact textarea{
+            display: block;
+            width: 40%;
+            box-shadow: 0px 0px 2px 2px lightgray;
+            border:none;
+            padding: 10px;
+            outline: none;
+            border-radius: 20px;
+
+            font-size: 18px;
+            margin: auto;
+            margin-bottom: 10px;
+        }
+       
+       #formBtn{
+           padding: 10px;
+       }
+        #formBtn input:hover{
+            cursor: pointer;
+            transform: scale(0.9,0.9);
+            
+        }
+        footer{
+            display: flex;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+            background-color: black;
+            box-shadow: 0px 0px 2px 2px lightgray;
+
+        }
+        footer div{
+            padding: 5px 0px;
+        }
+        footer div i{
+            margin: 10px;
+            padding:5px;
+            background-color: teal;
+            border-radius: 10px;
+            color: black;
+        }
+        footer div i:hover{
+            cursor:pointer;
+            color: white;
+            background-color: black;
+            transform: scale(0.9,0.9);
+            box-shadow: 0px 0px 2px 2px #eeeeee;
+            
+        }
+        .footerDiv2 ul{
+            display:inline-flex;
+        }
+        .footerDiv2 ul li{
+            list-style: none;
+            padding: 5px 20px;
+            color: white;
+        }
+        .footerDiv2 ul li a{
+            color: white;
+        }
+        .footerDiv2 ul li a:hover{
+            color: teal;
+        }
+        .bottomFooter{
+            box-shadow: 0px 0px 2px 2px #eeeeee;
+        }
+        @media screen and (min-device-width:200px) and (max-device-width:600px){
+            .navigationRight{
+                width: 100%;
+                justify-content: center;
+                float: none;
+                padding: 0px 10px;
+
+            }
+            .navigationLeft{
+                display: none;
+            }
+            .navigationRight ul li {
+            cursor: pointer;
+            list-style: none;
+            text-align: center;
+            padding: 5px 5px;
+            margin: 0px 5px;
+            border: 2px solid transparent;
+        }
+
+        .navigation ul li a {
+            color: white;
+            font-weight: bold;
+
+        }
+            .about{
+            
+            display: flex;
+            flex-direction: column;
+           
+        }
+        #greet{
+            font-size: 2rem;
+        }
+        #bottomGreet{
+            font-size: 2rem;
+
+        }
+        .about{
+            padding:10px 0px;
+        }
+        .about div{
+            margin: 10px;
+            width: 100%;
+           
+        }
+        .services div h2{
+         
+         font-size: 1rem;
+
+        }
+        .services{
+            display: block;
+            
+            
+        }
+        .services div{
+            width: 90%;
+            margin: 10px 5%;
+        }
+        #contact{
+            padding: 10px;
+        }
+        #contact input,#contact textarea{
+           
+            width: 80%;
+            
+        }
+        }
+    </style>
+</head>
+
+<body id="body">
+    <header>
+        <!-- ***************************Navigation************************* -->
+        <nav class="navigation" id="nav">
+            <div class="navigationLeft">
+                <h1>Portfolio</h1>
+            </div>
+            <div class="navigationRight">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#serv">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- /****************************************************/ -->
+
+        <div class="scrollImage">
+
+            <h1 id="greet" class="scrollAbsolute">Good Morning ,Friend's</h1>
+            <h1 class="scrollAbsolute" id="bottomGreet"></h1>
+            <a href="#contact" class="scrollAbsolute" id="scrollBtn">CONTACT</a>
+
+            <div id="scrollDiv1">
+            </div>
+            <div id="scrollDiv2">
+            </div>
+
+        </div>
+
+        <!-- /*************************About******************/ -->
+        <h1 id="aboutH">About Us</h1>
+        <section class="about" id="about">
+        <div>
+            <p>My name is Sawan Kumar Jha and I am from bihar but Nowdays I live in Greater noida and i passed Out Class
+                10<sup>th</sup> with 71% and currently I am pursing Diploma in Computer Science from galgotias
+                University apart From this I am also a Web Developer and cureently I am Workign on E-learnig Acadmeic
+                Project as a Frontend Developer and aprt from academic project I am also work on personal foody Website
+            </p>
+        </div>
+        <div id="aboutImg">
+            <img src="sawan.jpg" alt="Not Found">
+        </div>
+        </section>
+
+
+        <h1 id="headServices">Services</h1>
+        <section class="serv" id="serv">
+        <section class="services">
+            <div>
+                <img src="cl.png" alt="Not Found">
+                <h2>C Language</h2>
+            </div>
+            <div>
+                <img src="c++.png" alt="Not Found">
+                <h2>C++ language</h2>
+            </div>
+            <div>
+                <img src="java.png" alt="Not Found">
+                <h2>Java Language</h2>
+            </div>
+            <div>
+                <img src="python.png" alt="">
+                <h2>Python Language</h2>
+            </div>
+        </section>
+        <section class="services">
+            <div>
+                <img src="html.png" alt="Not Found">
+                <h2>HTML</h2>
+            </div>
+            <div>
+                <img src="css.png" alt="Not Found">
+                <h2>CSS</h2>
+            </div>
+            <div>
+                <img src="js.png" alt="Not Found">
+                <h2>Javascript</h2>
+            </div>
+            
+        </section>
+
+    </section>
+
+        <h1 id="headCont">Contact Form</h1>
+        <form action="" id="contact">
+            <input type="text" name="clientName" id="clientName" placeholder="Enter the name.....">
+            <input type="text" name="phone" id="phone" placeholder="Enter the phone number.....">
+            <input type="email" name="email" id="email" placeholder="Enter the email address.....">
+            <textarea name="message" id="message" cols="30" rows="10" placeholder="Enter the Number......"></textarea>
+            <div id="formBtn">
+                <input type="Submit" >
+                <input type="Reset" >
+            </div>
+        </form>
+    </header>
+    <footer>
+        <div>
+            <i class="fa fa-facebook" aria-hidden="true"></i>
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+            <i class="fa fa-linkedin" aria-hidden="true"></i>
+            <i class="fa fa-youtube" aria-hidden="true"></i>
+
+        </div>
+        <div class="footerDiv2">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#serv">Services</a></li>
+        </ul>
+        </div>
+        <div class="bottomFooter">
+            <h3>@ Designed by skDevelopment</h3>
+        </div>
+    </footer>
+
+
+    <!-- ********************************Script********************** -->
+    <script>
+        let headingName = document.getElementById('bottomGreet');
+        let j=0;
+        let intr="This is Sawan Kumar Jha";
+        setInterval(() => {
+            
+            if(j<intr.length)
+                {
+                headingName.innerHTML+=`${intr[j]}`;
+                j++;
+                }
+            else{
+                var str2= intr.substring(0,intr.length-1);
+                intr=str2;
+                headingName.innerHTML=str2;
+                if(str2.length==0)
+                    {
+                        intr="This is Sawan Kumar Jha";
+                        j=0; 
+                    }
+            }
+        }, 200);
+         let imageUrl = ['header1.jpeg','header2.jpeg','header3.jpeg','header4.jpeg','header5.jpeg']
+            let body = document.getElementById('body'); 
+            var i=0;
+        setInterval(() => {
+                if(i<imageUrl.length)
+                    {
+                    body.style.transition="all 0.6s 0.6s";
+                    body.style.transitionTimingFunction="linear";
+                    body.style.backgroundImage=`url('${imageUrl[i]}')`;
+                    i++;
+                    }
+                else if(i==imageUrl.length)
+                    i=0;
+            }, 4600);
+        
+       let nav=document.getElementById('nav');
+            setInterval(() => {
+                if(scrollY>0)
+                {
+                    nav.style.backgroundColor="rgba(0,0,0,0.7)";
+                    nav.style.boxShadow="0px 0px 2px 2px black";
+                }
+                else{
+                    nav.style.backgroundColor="transparent";
+                    nav.style.boxShadow="none";
+                }
+            }, 0);
+
+
+    </script>
+</body>
+
+</html>
